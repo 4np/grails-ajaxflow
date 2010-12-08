@@ -1,15 +1,15 @@
 package $packageName
 
 /**
- * Wizard Controler
+ * ajaxflow Controller
  *
  * @author	Jeroen Wesbeek
  * @since	$today
  *
  * Revision information:
- * \$Rev\$
- * \$Author\$
- * \$Date\$
+ * $Rev$
+ * $Author$
+ * $Date$
  */
 class $className {
 	// the pluginManager is used to check if the Grom

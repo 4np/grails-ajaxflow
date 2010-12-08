@@ -19,13 +19,13 @@ $openTag
  * @since  $today
  *
  * Revision information:
- * \$Rev\$
- * \$Author\$
- * \$Date\$
+ * $Rev$
+ * $Author$
+ * $Date$
  */
 $closeTag
 <script type="text/javascript">
 function refreshFlow() {
-	<wizard:ajaxSubmitJs form="#wizardForm" name="refresh" afterSuccess="onPage()" />
+	<af:ajaxSubmitJs name="refresh" afterSuccess="onPage()" />
 }
 </script>

@@ -6,9 +6,9 @@ $openTag
  * @since  $today
  *
  * Revision information:
- * \$Rev\$
- * \$Author\$
- * \$Date\$
+ * $Rev$
+ * $Author$
+ * $Date$
  */
 $closeTag
 <g:set var="showPrevious" value="\${page>1 && page<pages.size}"/>
