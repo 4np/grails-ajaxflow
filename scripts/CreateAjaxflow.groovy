@@ -1,22 +1,23 @@
 /**
- *  Ajaxflow, a plugin for Ajaxified Webflows
- *  Copyright (C) 2010 Jeroen Wesbeek
+ * Ajaxflow, a plugin for Ajaxified Webflows
+ * Copyright (C) 2010 Jeroen Wesbeek
  *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *  http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
- *  $Author$
- *  $Rev$
- *  $Date$
+ * Revision information:
+ * $Author$
+ * $Rev$
+ * $Date$
  */
 import groovy.text.SimpleTemplateEngine
 
@@ -84,12 +85,12 @@ target(default: 'Sets up a new ajax base flow, ready for customization') {
 
 	// create the ajax flow controller
 	mkdir(dir:"${basedir}/grails-app/controllers/${packageDir}")
-	def controllerTemplate	= engine.createTemplate(new FileReader("${ajaxflowPluginDir}/src/templates/controllers/WizardController.groovy")).make(binding)
+	def controllerTemplate	= engine.createTemplate(loadAndEscape("${ajaxflowPluginDir}/src/templates/controllers/WizardController.groovy")).make(binding)
 	new File("${basedir}/grails-app/controllers/${packageDir}/${controllerName}.groovy").write(controllerTemplate.toString())
 
 	// create the ajax flow javascript
 	mkdir(dir:"${basedir}/web-app/css")
-	def jsTemplate	= engine.createTemplate(new FileReader("${ajaxflowPluginDir}/src/templates/css/wizard.css")).make(binding)
+	def jsTemplate	= engine.createTemplate(loadAndEscape("${ajaxflowPluginDir}/src/templates/css/wizard.css")).make(binding)
 	new File("${basedir}/web-app/css/${name}.css").write(jsTemplate.toString())
 
 	// set up the ajax flow views
@@ -120,7 +121,7 @@ target(default: 'Sets up a new ajax base flow, ready for customization') {
 	mkdir(dir:"${basedir}/grails-app/views/${nameDir}/pages")
 	views.each {
 		// parse view template
-		viewTemplate = engine.createTemplate(new FileReader("${ajaxflowPluginDir}/src/templates/views/${it}")).make(binding)
+		viewTemplate = engine.createTemplate(loadAndEscape("${ajaxflowPluginDir}/src/templates/views/${it}")).make(binding)
 
 		// write file
 		new File("${basedir}/grails-app/views/${nameDir}/${it}").write(viewTemplate.toString())
@@ -134,4 +135,16 @@ target(default: 'Sets up a new ajax base flow, ready for customization') {
 
 	println ""
 	println "Your Ajax Flow is set up, please browse to /${name} to view your new Ajax Flow"
+}
+
+def loadAndEscape(path) {
+	// load file
+	def file	= new FileReader(path)
+	def content	= file.text
+
+	// escape svn keyword expansion
+	return content.replaceAll(
+		/\$([A-Za-z]+):([^\$]+)\$/,
+		'\\\\\\\$$1: $2\\\\\\\$'
+	)
 }
