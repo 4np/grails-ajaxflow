@@ -88,7 +88,7 @@ class AjaxflowTagLib extends JavascriptTagLib {
 		    'formName'				: formName,
 			'commonTemplatePath'	: (attrs.get('commons')) ? attrs.remove('commons') : '',
 			'partialTemplatePath'	: (attrs.get('partials')) ? attrs.remove('partials') : '',
-			'webFlowController'		: (attrs.get('controller')) ? attrs.remove('controller') : [controller: formName, controller: 'pages']
+			'webFlowController'		: (attrs.get('controller')) ? attrs.remove('controller') : [controller: formName, action: 'pages']
 		]
 
 		// render wizard form

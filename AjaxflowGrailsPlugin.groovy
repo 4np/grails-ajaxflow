@@ -19,7 +19,7 @@
  *  $Date$
  */
 class AjaxflowGrailsPlugin {
-	def version			= "0.1.7"
+	def version			= "0.1.8"
 	def grailsVersion	= "1.3.5 > *"
 	def dependsOn		= [webflow: "1.3 > *", jquery: "1.4 > *"]
 	def pluginExcludes	= [
@@ -29,7 +29,7 @@ class AjaxflowGrailsPlugin {
 	def authorEmail		= "work@osx.eu"
 	def title			= "This plugin enables Ajaxified Webflows"
 	def description		= '''\\
-This plugin enables Ajaxified Webflows and can create a new default ajaxflow on the fly
+This plugin enables Ajaxified Webflows and is able to inject working customizable ajax webflows into your existing project(s)
 '''
 	def documentation	= "http://grails.org/plugin/ajaxflow"
 
