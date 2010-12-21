@@ -62,20 +62,20 @@
 	border: none;	
 }
 .tabs li:last-child:after {
-	content: url('../images/$viewDir/spacer.gif');
+	content: url('../images/$imageDir/spacer.gif');
 }
 .tabs li:first-child:before {
-	content: url('../images/$viewDir/spacer.gif');
+	content: url('../images/$imageDir/spacer.gif');
 }
 .tabs li:before {
-	content:url(../images/$viewDir/arrowR.gif);
+	content:url(../images/$imageDir/arrowR.gif);
 	position:inherit;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	display:inline;
 }
 .tabs li:after {
-	content:url(../images/$viewDir/arrowL.gif);
+	content:url(../images/$imageDir/arrowL.gif);
 	position:inherit;
 	margin-top: 0px;
 	margin-bottom: 0px;

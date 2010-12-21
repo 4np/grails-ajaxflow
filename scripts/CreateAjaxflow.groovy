@@ -60,8 +60,9 @@ target(default: 'Sets up a new ajax base flow, ready for customization') {
 	(packageName, name) = parseArgs()
 
 	// change package name into directory
-    packageDir	= packageName.replaceAll(/\.|\//, '/')
-	nameDir		= name.toLowerCase().replace(' ', '-')
+    packageDir		= packageName.replaceAll(/\.|\//, '/')
+	camelCaseNameDir= name.replace(' ','-')
+	nameDir			= camelCaseNameDir.toLowerCase()
 
 	// define date stamp (YYYYMMDD)
 	def today = String.format('%tY%<tm%<td', new GregorianCalendar() )
@@ -74,7 +75,8 @@ target(default: 'Sets up a new ajax base flow, ready for customization') {
 	def binding	= [
 		'packageName'	: packageName,
 		'className'		: controllerName,
-		'viewDir'		: nameDir,
+		'viewDir'		: camelCaseNameDir,
+		'imageDir'		: nameDir,
 		'name'			: name,
 		'nameError'		: name + 'Error',
 		'css'			: name + '.css',
@@ -116,15 +118,15 @@ target(default: 'Sets up a new ajax base flow, ready for customization') {
 		'pages/_error.gsp'
 	]
 	def viewTemplate = ''
-	mkdir(dir:"${basedir}/grails-app/views/${nameDir}")
-	mkdir(dir:"${basedir}/grails-app/views/${nameDir}/common")
-	mkdir(dir:"${basedir}/grails-app/views/${nameDir}/pages")
+	mkdir(dir:"${basedir}/grails-app/views/${camelCaseNameDir}")
+	mkdir(dir:"${basedir}/grails-app/views/${camelCaseNameDir}/common")
+	mkdir(dir:"${basedir}/grails-app/views/${camelCaseNameDir}/pages")
 	views.each {
 		// parse view template
 		viewTemplate = engine.createTemplate(loadAndEscape("${ajaxflowPluginDir}/src/templates/views/${it}")).make(binding)
 
 		// write file
-		new File("${basedir}/grails-app/views/${nameDir}/${it}").write(viewTemplate.toString())
+		new File("${basedir}/grails-app/views/${camelCaseNameDir}/${it}").write(viewTemplate.toString())
 	}
 
 	// set up images

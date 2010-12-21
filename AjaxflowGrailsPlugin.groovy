@@ -19,9 +19,9 @@
  *  $Date$
  */
 class AjaxflowGrailsPlugin {
-	def version			= "0.1.8"
+	def version			= "0.1.9"
 	def grailsVersion	= "1.3.5 > *"
-	def dependsOn		= [webflow: "1.3 > *", jquery: "1.4 > *"]
+	def dependsOn		= [webflow: "1.3.5 > *", jquery: "1.4 > *"]
 	def pluginExcludes	= [
 		"grails-app/views/error.gsp"
 	]
