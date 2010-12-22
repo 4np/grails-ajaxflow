@@ -12,7 +12,7 @@ $openTag
  */
 $closeTag
 <div id="ajaxflow">
-<af:flow name="$name" class="ajaxFlow" commons="common" partials="pages" controller="[controller: '$name', action: 'pages']">
+<af:flow name="$name" class="ajaxFlow" commons="common" partials="pages" spinner="ajaxFlowWait" controller="[controller: '$name', action: 'pages']">
 	$openTag	/**
 	 	 * The initial rendering of this template will result
 	 	 * in automatically triggering the 'next' event in
@@ -28,4 +28,4 @@ $closeTag
 </g:if>
 </div>
 <g:render template="common/on_page"/>
-
+<g:render template="common/please_wait"/>

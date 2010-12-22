@@ -88,7 +88,8 @@ class AjaxflowTagLib extends JavascriptTagLib {
 		    'formName'				: formName,
 			'commonTemplatePath'	: (attrs.get('commons')) ? attrs.remove('commons') : '',
 			'partialTemplatePath'	: (attrs.get('partials')) ? attrs.remove('partials') : '',
-			'webFlowController'		: (attrs.get('controller')) ? attrs.remove('controller') : [controller: formName, action: 'pages']
+			'webFlowController'		: (attrs.get('controller')) ? attrs.remove('controller') : [controller: formName, action: 'pages'],
+			'spinner'				: (attrs.get('spinner')) ? attrs.remove('spinner') : ''
 		]
 
 		// render wizard form
@@ -151,6 +152,11 @@ class AjaxflowTagLib extends JavascriptTagLib {
 		// set default update map if not specified
 		if (!attrs.containsKey('update')) attrs['update'] = [success: session['ajaxflow']['formName'] + 'Page', error: session['ajaxflow']['formName'] + 'Error']
 
+		// add support for a spinner :: part 1
+		if (session['ajaxflow']['spinner']) {
+			attrs['onFailure'] = 'contentDiv.html(contentDivHtml);' + attrs.get('onFailure')
+		}
+
 		// generate a normal submitToRemote button
 		def button = submitToRemote(attrs, body)
 
@@ -185,6 +191,25 @@ class AjaxflowTagLib extends JavascriptTagLib {
 		if (afterSuccess) {
 			button = button.replaceFirst(/\.html\(data\)\;/, '.html(data);' + afterSuccess + ';')
 		}
+
+		// add support for a spinner :: part two
+		if (session['ajaxflow']['spinner']) {
+			// insert spinner
+			button = button.replaceFirst(/onclick=\"/, 'onclick=\"var formData=\\$(\'form#' + session['ajaxflow']['formName'] + '\').serialize();var contentDiv=\\$(\'div#' + session['ajaxflow']['formName'] + 'Page\').find(\'div.content\');var contentDivHtml=contentDiv.html();contentDiv.html(\\$(\'div#' + session['ajaxflow']['spinner'] + '\').html());')
+
+			// change serialize part
+			button = button.replaceFirst(
+				/jQuery\(this\)\.parents\(\'form\:first\'\)\.serialize\(\)/,
+				'formData'
+			)
+		} else {
+			// insert formName
+			button = button.replaceFirst(
+				/jQuery\(this\)\.parents\(\'form\:first\'\)/,
+				'\\$(\'form#' + session['ajaxflow']['formName'] + '\')'
+			)
+		}
+		println button
 
 		// got an src parameter?
 		if (src) {
@@ -226,12 +251,15 @@ class AjaxflowTagLib extends JavascriptTagLib {
 		button = button.replaceFirst(/return false.*/, '')
 
 		// change form if a form attribute is present
+		/*
 		if (attrs.get('form')) {
             button = button.replace(
 				"jQuery(this).parents('form:first')",
 				"\$('" + attrs.get('form') + "')"
 			)
 		}
+		"\$('${session['ajaxflow']['formName']}')"
+		*/
 
 		// change 'this' if a this attribute is preset
 		if (attrs.get('this')) {

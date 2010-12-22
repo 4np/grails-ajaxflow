@@ -24,7 +24,7 @@ import groovy.text.SimpleTemplateEngine
 includeTargets << grailsScript("_GrailsArgParsing")
 
 USAGE = """
-    create-ajax-flow PKG NAME
+    create-ajaxflow PKG NAME
 
 where
     PKG  = The package name to use for your controller.
@@ -108,6 +108,7 @@ target(default: 'Sets up a new ajax base flow, ready for customization') {
 		'common/_tabs.gsp',
 		'common/_on_page.gsp',
 		'common/_refresh_flow.gsp',
+		'common/_please_wait.gsp',
 
 		// page views
 		'pages/_page_one.gsp',
@@ -134,6 +135,7 @@ target(default: 'Sets up a new ajax base flow, ready for customization') {
 	copy(file:"${ajaxflowPluginDir}/src/templates/images/arrowL.gif", tofile: "${basedir}/web-app/images/${nameDir}/arrowL.gif", overwrite: false)
 	copy(file:"${ajaxflowPluginDir}/src/templates/images/arrowR.gif", tofile: "${basedir}/web-app/images/${nameDir}/arrowR.gif", overwrite: false)
 	copy(file:"${ajaxflowPluginDir}/src/templates/images/spacer.gif", tofile: "${basedir}/web-app/images/${nameDir}/spacer.gif", overwrite: false)
+	copy(file:"${ajaxflowPluginDir}/src/templates/images/spinner-large.gif", tofile: "${basedir}/web-app/images/${nameDir}/spinner-large.gif", overwrite: false)
 
 	println ""
 	println "Your Ajax Flow is set up, please browse to /${name} to view your new Ajax Flow"

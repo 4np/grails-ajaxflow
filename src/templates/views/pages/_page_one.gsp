@@ -12,7 +12,16 @@ $openTag
  */
 $closeTag
 <af:page>
-<h1>Page one of the '<i>$name</i>' ajax flow</h1>
+<h1>Page one of the '<i>$name</i>' ajaxflow</h1>
+<p>
+	<b>
+		This ajaxflow supports by default a spinner / please wait dialogue when clicking buttons / tabs. This
+		can be disabled by removing the <i>spinner="ajaxFlowWait"</i> argument from the <i>af:flow</i>
+		definition in <i>common/_ajaxflow.gsp</i>. If you're disabling this feature you might also want to remove the
+		then obsolete tag &lt;g:render template="common/please_wait"/&gt; from <i>common/_ajaxflow.gsp</i>
+		as well.
+	</b>
+</p>
 <p>
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies sapien vestibulum mi mattis sed mollis lorem hendrerit. Sed pretium dignissim placerat. Maecenas ut lorem dui, nec lacinia massa. Nunc pharetra justo sed purus fermentum lobortis. Quisque ac ante at sapien faucibus feugiat. Aliquam lacus tortor, gravida eget mollis quis, lacinia eu enim. Phasellus vel neque neque, rhoncus volutpat erat. Aliquam sodales porttitor urna, sed volutpat ipsum lacinia vitae. Nam pretium, eros fringilla vehicula congue, erat quam congue est, at feugiat ante ante nec magna. Pellentesque placerat facilisis massa in venenatis. Proin turpis lorem, viverra at posuere id, porta a justo. Quisque consectetur enim at justo dapibus pulvinar.
 </p>
