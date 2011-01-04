@@ -209,7 +209,6 @@ class AjaxflowTagLib extends JavascriptTagLib {
 				'\\$(\'form#' + session['ajaxflow']['formName'] + '\')'
 			)
 		}
-		println button
 
 		// got an src parameter?
 		if (src) {

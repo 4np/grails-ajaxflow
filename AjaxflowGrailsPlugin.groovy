@@ -23,7 +23,11 @@ class AjaxflowGrailsPlugin {
 	def grailsVersion	= "1.3.5 > *"
 	def dependsOn		= [webflow: "1.3.5 > *", jquery: "1.4 > *"]
 	def pluginExcludes	= [
-		"grails-app/views/error.gsp"
+		"grails-app/views/error.gsp",
+		"web-app/css",
+		"web-app/images",
+		"web-app/js/prototype",
+		"web-app/js/application.js"
 	]
 	def author			= "Jeroen Wesbeek"
 	def authorEmail		= "work@osx.eu"
