@@ -135,7 +135,7 @@ target(default: 'Sets up a new ajax base flow, ready for customization') {
 	copy(file:"${ajaxflowPluginDir}/src/templates/images/arrowL.gif", tofile: "${basedir}/web-app/images/${nameDir}/arrowL.gif", overwrite: false)
 	copy(file:"${ajaxflowPluginDir}/src/templates/images/arrowR.gif", tofile: "${basedir}/web-app/images/${nameDir}/arrowR.gif", overwrite: false)
 	copy(file:"${ajaxflowPluginDir}/src/templates/images/spacer.gif", tofile: "${basedir}/web-app/images/${nameDir}/spacer.gif", overwrite: false)
-	copy(file:"${ajaxflowPluginDir}/src/templates/images/spinner-large.gif", tofile: "${basedir}/web-app/images/${nameDir}/spinner-large.gif", overwrite: false)
+	copy(file:"${ajaxflowPluginDir}/src/templates/images/ajax-loader.gif", tofile: "${basedir}/web-app/images/${nameDir}/spinner-large.gif", overwrite: false)
 
 	println ""
 	println "Your Ajax Flow is set up, please browse to /${name} to view your new Ajax Flow"

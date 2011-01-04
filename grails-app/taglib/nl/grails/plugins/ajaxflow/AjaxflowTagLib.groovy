@@ -72,7 +72,8 @@ class AjaxflowTagLib extends JavascriptTagLib {
 	 * @param Closure	body
 	 */
 	def flow = { attrs, body ->
-		def formName = (attrs.get('name')) ? attrs.remove('name') : 'wizard'
+		def formName 		= (attrs.get('name')) ? attrs.remove('name') : 'wizard'
+		def spinner			= (attrs.get('spinner')) ? attrs.remove('spinner') : ''
 		def formAttributes = [
 			action	: (attrs.get('action')) ? attrs.remove('action') : 'pages',
 			name	: formName,
@@ -89,13 +90,31 @@ class AjaxflowTagLib extends JavascriptTagLib {
 			'commonTemplatePath'	: (attrs.get('commons')) ? attrs.remove('commons') : '',
 			'partialTemplatePath'	: (attrs.get('partials')) ? attrs.remove('partials') : '',
 			'webFlowController'		: (attrs.get('controller')) ? attrs.remove('controller') : [controller: formName, action: 'pages'],
-			'spinner'				: (attrs.get('spinner')) ? attrs.remove('spinner') : ''
+			'spinner'				: spinner
 		]
 
 		// render wizard form
 		out << form(
 			formAttributes,
 			(
+				((session['ajaxflow']['spinner']) ?
+					"""<script type=\"text/javascript\">
+var spinnerVisible = false;
+function showSpinner() {
+	spinnerVisible = true;
+	setTimeout("showDelayedSpinner();", 500);
+}
+function showDelayedSpinner() {
+	if (spinnerVisible) {
+		\$('div#$spinner').show(400);
+	}
+}
+function hideSpinner() {
+	spinnerVisible = false;
+	\$('div#$spinner').hide(200);
+}
+</script>"""
+					: "") +
 				"\n\t<div id=\"${formName}Page\">\n" +
 				body() +
 				"\t</div>\n"
@@ -189,13 +208,17 @@ class AjaxflowTagLib extends JavascriptTagLib {
 		// usefull for performing actions on success data (hence on refreshed
 		// wizard pages, such as attaching tooltips)
 		if (afterSuccess) {
-			button = button.replaceFirst(/\.html\(data\)\;/, '.html(data);' + afterSuccess + ';')
+			if (session['ajaxflow']['spinner']) {
+				button = button.replaceFirst(/\.html\(data\)\;/, '.html(data);hideSpinner();' + afterSuccess + ';')
+			} else {
+				button = button.replaceFirst(/\.html\(data\)\;/, '.html(data);' + afterSuccess + ';')
+			}
 		}
 
 		// add support for a spinner :: part two
 		if (session['ajaxflow']['spinner']) {
 			// insert spinner
-			button = button.replaceFirst(/onclick=\"/, 'onclick=\"var formData=\\$(\'form#' + session['ajaxflow']['formName'] + '\').serialize();var contentDiv=\\$(\'div#' + session['ajaxflow']['formName'] + 'Page\').find(\'div.content\');var contentDivHtml=contentDiv.html();contentDiv.html(\\$(\'div#' + session['ajaxflow']['spinner'] + '\').html());')
+			button = button.replaceFirst(/onclick=\"/, 'onclick=\"var formData=\\$(\'form#' + session['ajaxflow']['formName'] + '\').serialize();showSpinner();')
 
 			// change serialize part
 			button = button.replaceFirst(
