@@ -173,7 +173,7 @@ function hideSpinner() {
 
 		// add support for a spinner :: part 1
 		if (session['ajaxflow']['spinner']) {
-			attrs['onFailure'] = 'contentDiv.html(contentDivHtml);' + attrs.get('onFailure')
+			attrs['onFailure'] = 'hideSpinner();' + attrs.get('onFailure')
 		}
 
 		// generate a normal submitToRemote button
