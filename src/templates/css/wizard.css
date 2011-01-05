@@ -139,7 +139,7 @@
 	background-color: black;
 	width: 100%;
 	height: 100%;
-	position: absolute;
+	position: fixed;
 	z-index: 100000;
 	top: 0px;
 	left: 0px;
@@ -157,7 +157,7 @@
 .ajaxFlow .waiter {
 	width: 100%;
 	height: 100%;
-	position: absolute;
+	position: fixed;
 	z-index: 100001;
 	top: 0px;
 	left: 0px;
@@ -169,7 +169,7 @@
 	*display: inline; /* IE 6 & 7 hack */
 	width: 100%;
 	position:relative;
-	top: 25%;
+	top: 40%;
 	left: 25%;
 	width: 50%;
 	height: 100px;

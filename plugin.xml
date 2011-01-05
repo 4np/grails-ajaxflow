@@ -1,4 +1,4 @@
-<plugin name='ajaxflow' version='0.1.11' grailsVersion='1.3.5 &gt; *'>
+<plugin name='ajaxflow' version='0.1.12' grailsVersion='1.3.5 &gt; *'>
   <author>Jeroen Wesbeek</author>
   <authorEmail>work@osx.eu</authorEmail>
   <title>This plugin enables Ajaxified Webflows</title>
