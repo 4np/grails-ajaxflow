@@ -218,12 +218,12 @@ function hideSpinner() {
 		// add support for a spinner :: part two
 		if (session['ajaxflow']['spinner']) {
 			// insert spinner
-			button = button.replaceFirst(/onclick=\"/, 'onclick=\"var formData=\\$(\'form#' + session['ajaxflow']['formName'] + '\').serialize();showSpinner();')
+			button = button.replaceFirst(/onclick=\"/, 'onclick=\"showSpinner();')
 
 			// change serialize part
 			button = button.replaceFirst(
 				/jQuery\(this\)\.parents\(\'form\:first\'\)\.serialize\(\)/,
-				'formData'
+				'\\$(\'form#' + session['ajaxflow']['formName'] + '\').serialize()'
 			)
 		} else {
 			// insert formName
