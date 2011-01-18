@@ -115,6 +115,7 @@ function hideSpinner() {
 }
 </script>"""
 					: "") +
+				"\n\t<input type=\"hidden\" name=\"id\">\n" +
 				"\n\t<div id=\"${formName}Page\">\n" +
 				body() +
 				"\t</div>\n"
@@ -164,6 +165,12 @@ function hideSpinner() {
 		// src parameter?
 		def src = attrs['src']
 		def alt = attrs['alt']
+
+		// got an id parameter?
+		if (attrs.get('id')) {
+			// make sure the id is passed to the recieving controller
+			attrs['before'] = "\$(\'form#" + session['ajaxflow']['formName'] + " input[name=id]\').val(${attrs.remove('id')});" + ((attrs.get('before')) ? attrs.get('before') : '')
+		}
 
 		// set default url map if not specified
 		if (!attrs.containsKey('url')) attrs['url'] = session['ajaxflow']['webFlowController'].clone()
