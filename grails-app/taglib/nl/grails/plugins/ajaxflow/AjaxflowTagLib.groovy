@@ -89,6 +89,7 @@ class AjaxflowTagLib extends JavascriptTagLib {
 		    'formName'				: formName,
 			'commonTemplatePath'	: (attrs.get('commons')) ? attrs.remove('commons') : '',
 			'partialTemplatePath'	: (attrs.get('partials')) ? attrs.remove('partials') : '',
+			'plugin'				: (attrs.get('plugin')) ? attrs.remove('plugin') : '',
 			'webFlowController'		: (attrs.get('controller')) ? attrs.remove('controller') : [controller: formName, action: 'pages'],
 			'spinner'				: spinner
 		]
@@ -418,9 +419,15 @@ function hideSpinner() {
 		// af:wizard tag ?
 		if (session['ajaxflow']['commonTemplatePath']) {
 			// yes, render a wizard page
-			out << render([template: session['ajaxflow']['commonTemplatePath'] + '/page_header' ])
-			out << body()
-			out << render([template: session['ajaxflow']['commonTemplatePath'] + '/page_footer' ])
+			if (session['ajaxflow']['plugin']) {
+				out << render([template: session['ajaxflow']['commonTemplatePath'] + '/page_header', plugin: session['ajaxflow']['plugin'] ])
+				out << body()
+				out << render([template: session['ajaxflow']['commonTemplatePath'] + '/page_footer', plugin: session['ajaxflow']['plugin'] ])
+			} else {
+				out << render([template: session['ajaxflow']['commonTemplatePath'] + '/page_header' ])
+				out << body()
+				out << render([template: session['ajaxflow']['commonTemplatePath'] + '/page_footer' ])
+			}
 		} else {
 			// render with a warning
 			out << "[_page_header.gsp is not available]<br/>"
