@@ -19,7 +19,7 @@
  *  $Date$
  */
 class AjaxflowGrailsPlugin {
-	def version			= "0.2.1"
+	def version		= "0.2.2"
 	def grailsVersion	= "1.3.4 > *"
 	def dependsOn		= [webflow: "1.3.4 => *", jquery: "1.4 => *"]
 	def pluginExcludes	= [
@@ -35,7 +35,7 @@ class AjaxflowGrailsPlugin {
 	def description		= '''\\
 This plugin enables Ajaxified Webflows and is able to inject working customizable ajax webflows into your existing project(s)
 '''
-	def documentation	= "http://grails.org/plugin/ajaxflow"
+	def documentation	= "https://github.com/4np/grails-ajaxflow/blob/master/README.md"
 
 	def doWithWebDescriptor = { xml ->
 		// TODO Implement additions to web.xml (optional), this event occurs before
