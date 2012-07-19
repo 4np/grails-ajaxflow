@@ -13,7 +13,7 @@ grails.project.dependency.resolution = {
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
         grailsCentral()
-	grailsRepo "http://grails.org/plugins"
+        grailsRepo "http://grails.org/plugins"
 
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
@@ -31,18 +31,21 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        build(":tomcat:$grailsVersion",
-              ":release:latest.integration",
-	      ":rest-client-builder:latest.integration") {
-		// plugin only plugin, should not be transitive to the application
-		export = false
+        build(
+                ":tomcat:$grailsVersion",
+                ":release:latest.integration",
+                ":rest-client-builder:latest.integration"
+        ) {
+            // plugin only plugin, should not be transitive to the application
+            export = false
         }
 
-	compile(":jquery:latest.integration",
-		":webflow:latest.integration") {
-		// required for the proper working of this pluging, should be
-		// in the application
-		export = false
-	}
+        compile(":jquery:latest.integration",
+                ":webflow:latest.integration",
+		        ":hibernate:$grailsVersion") {
+            // required for the proper working of this pluging, should be
+            // in the application
+            export = false
+        }
     }
 }
