@@ -6,9 +6,9 @@ $openTag
  * @since  $today
  *
  * Revision information:
- * $Rev$
- * $Author$
- * $Date$
+ * \$Rev\$
+ * \$Author\$
+ * \$Date\$
  */
 $closeTag
 <html>

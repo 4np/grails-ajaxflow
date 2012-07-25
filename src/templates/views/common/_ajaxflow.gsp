@@ -6,9 +6,7 @@ $openTag
  * @since  $today
  *
  * Revision information:
- * $Rev$
- * $Author$
- * $Date$
+ *
  */
 $closeTag
 <div id="ajaxflow">
