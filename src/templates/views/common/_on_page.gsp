@@ -17,9 +17,9 @@ $openTag
  * @since  $today
  *
  * Revision information:
- * $Rev$
- * $Author$
- * $Date$
+ * \$Rev\$
+ * \$Author\$
+ * \$Date\$
  */
 $closeTag
 <script type="text/javascript">
