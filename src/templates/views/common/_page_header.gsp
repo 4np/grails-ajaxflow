@@ -7,13 +7,8 @@ $openTag
  *
  * <af:pageHeader>
  *
- * @author Jeroen Wesbeek
- * @since  $today
- *
- * Revision information:
- * \$Rev\$
- * \$Author\$
- * \$Date\$
+ * @author	Jeroen Wesbeek <work@osx.eu>
+ * @package AjaxFlow
  */
 $closeTag
 <h1>AjaxFlow '<i>$name</i>' : page \${page}</h1>

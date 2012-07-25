@@ -5,13 +5,8 @@ $openTag
  * This is used by the ajax buttons, also see the 'spinner'
  * argument in the flow definition in _ajaxflow.gsp
  *
- * @author Jeroen Wesbeek
- * @since  20101222
- *
- * Revision information:
- * \$Rev\$: 66849
- * \$Author\$:
- * \$Date\$
+ * @author	Jeroen Wesbeek <work@osx.eu>
+ * @package AjaxFlow
  */
 $closeTag
 <div id="ajaxFlowWait" class="ajaxFlow" style="display:none;">

@@ -15,13 +15,8 @@ $openTag
  * function to refresh the page and the select element will
  * show the newly added options.
  *
- * @author Jeroen Wesbeek
- * @since  $today
- *
- * Revision information:
- * \$Rev\$
- * \$Author\$
- * \$Date\$
+ * @author	Jeroen Wesbeek <work@osx.eu>
+ * @package AjaxFlow
  */
 $closeTag
 <script type="text/javascript">

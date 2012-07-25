@@ -2,13 +2,8 @@ $openTag
 /**
  * second wizard page / tab
  *
- * @author Jeroen Wesbeek
- * @since  $today
- *
- * Revision information:
- * \$Rev\$
- * \$Author\$
- * \$Date\$
+ * @author	Jeroen Wesbeek <work@osx.eu>
+ * @package AjaxFlow
  */
 $closeTag
 <af:page>

@@ -13,13 +13,8 @@ $openTag
  * Generally one would expect this code to add jQuery event handlers to
  * DOM objects in the rendered page (/ partial).
  *
- * @author Jeroen Wesbeek
- * @since  $today
- *
- * Revision information:
- * \$Rev\$
- * \$Author\$
- * \$Date\$
+ * @author	Jeroen Wesbeek <work@osx.eu>
+ * @package AjaxFlow
  */
 $closeTag
 <script type="text/javascript">

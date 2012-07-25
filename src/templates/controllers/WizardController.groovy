@@ -3,10 +3,8 @@ package $packageName
 /**
  * ajaxflow Controller
  *
- * @author	Jeroen Wesbeek
- * @since	$today
- *
- * Revision information:
+ * @author	Jeroen Wesbeek <work@osx.eu>
+ * @package AjaxFlow
  */
 class $className {
 	// the pluginManager is used to check if the Grom

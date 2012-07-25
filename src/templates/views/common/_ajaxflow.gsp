@@ -2,11 +2,8 @@ $openTag
 /**
  * main ajax flow template
  *
- * @author Jeroen Wesbeek
- * @since  $today
- *
- * Revision information:
- *
+ * @author	Jeroen Wesbeek <work@osx.eu>
+ * @package AjaxFlow
  */
 $closeTag
 <div id="ajaxflow">

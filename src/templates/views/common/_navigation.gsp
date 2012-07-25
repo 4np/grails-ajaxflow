@@ -2,13 +2,8 @@ $openTag
 /**
  * Navigation template
  *
- * @author Jeroen Wesbeek
- * @since  $today
- *
- * Revision information:
- * \$Rev\$
- * \$Author\$
- * \$Date\$
+ * @author	Jeroen Wesbeek <work@osx.eu>
+ * @package AjaxFlow
  */
 $closeTag
 <g:set var="showPrevious" value="\${page>1 && page<pages.size}"/>

@@ -5,13 +5,8 @@ $openTag
  * The 'pages' and 'page' variables are defined
  * in the flow scope. See WizardController:pagesFlow:onStart
  *
- * @author Jeroen Wesbeek
- * @since  $today
- *
- * Revision information:
- * \$Rev\$
- * \$Author\$
- * \$Date\$
+ * @author	Jeroen Wesbeek <work@osx.eu>
+ * @package AjaxFlow
  */
 $closeTag
 <af:tabs pages="\${pages}" page="\${page}" clickable="\${true}" />
