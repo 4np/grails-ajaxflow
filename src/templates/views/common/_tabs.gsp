@@ -9,9 +9,9 @@ $openTag
  * @since  $today
  *
  * Revision information:
- * $Rev$
- * $Author$
- * $Date$
+ * \$Rev\$
+ * \$Author\$
+ * \$Date\$
  */
 $closeTag
 <af:tabs pages="\${pages}" page="\${page}" clickable="\${true}" />

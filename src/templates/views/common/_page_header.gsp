@@ -11,9 +11,9 @@ $openTag
  * @since  $today
  *
  * Revision information:
- * $Rev$
- * $Author$
- * $Date$
+ * \$Rev\$
+ * \$Author\$
+ * \$Date\$
  */
 $closeTag
 <h1>AjaxFlow '<i>$name</i>' : page \${page}</h1>
