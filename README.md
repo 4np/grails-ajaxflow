@@ -10,7 +10,7 @@ grails create-ajaxflow my.package.name wizard
 This will create a ajaxflow called 'wizard' which is working and ready for customization at http://localhost:8080/myProject/wizard
 The command will set up an initial five page ajaxflow containing an initial controller, commons views, partial views, images and css.
 
-![example1](http://grails.org/wikiImage/installation-761/Screen_shot_2010-12-08_at_4.01.13_PM.png)
+![example1](https://dl.dropbox.com/s/s60c6pycmiwh6nj/ajaxflow-screenshot.png?dl=1)
 
 It's easiest to first perform a svn update command before injecting a new ajaxflow as it allows you to easily remove the ajaxflow by reverting your project.
 
@@ -180,7 +180,7 @@ The ```clickable="true"``` parameter makes the tabs / breadcrumbs clickable an r
 
 In the quick setup (grails create-ajaxflow my.package name) the tabs will look like this:
 
-![example2](http://grails.org/wikiImage/description-761/Screen_shot_2010-12-08_at_5.42.53_PM.png)
+![example2](https://dl.dropbox.com/s/g035rjss5ei9l6y/ajaxflow-tabs.png?dl=1)
 
 ## The af:ajaxButton tag
 As regular buttons are not possible from within an ajaxflow, the ```af:ajaxButton``` is the replacement tag to create buttons. They work similar to buttons in a normal webflow in the way that they also trigger a particular event in an ajaxflow's webflow definition.
