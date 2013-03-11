@@ -20,6 +20,25 @@ It's easiest to first perform a svn update command before injecting a new ajaxfl
 * changing the image references in the css to the new image directory
 * changing the css include in the index.gsp view*
 
+## Note on Grails 2.2.0
+If you are using Grails 2.2.0, there is an issue with resolving and installing the webflow plugin (on which ajaxflow depends). 
+You need to add the webflow dependency as follows to your BuildConfig.groovy in order for it to work:
+
+```groovy
+    dependencies {
+        compile "org.grails:grails-webflow:2.2.0"
+    }
+
+    plugins {
+        ...
+        compile ":webflow:2.0.0", {
+            exclude 'grails-webflow'
+        }
+    }
+```
+More information can be found in the [Grails ticket](http://jira.grails.org/browse/GRAILS-9781#comment-73859).
+
+
 ## Differences
 Ajaxflows and rendering partials is different from generic webflows because the browser will not render full HTML pages but will only render small sections within the page. This means that when you want to bind handlers to DOM element, you need to do that every time a partial page is rendered and -hence- after every ajax request. This can be done by using the ```afterSuccess``` parameter for ```af:triggerEvent``` , ```af:ajaxSubmitJs``` , ```af:ajaxButton``` or ```af:navigation``` tags. When not specified, it will always default to ```onPage();``` so make sure that Javascript function is available.
 
